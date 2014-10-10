@@ -1,0 +1,15 @@
+# generally put at the end of my .bashrc
+
+# load nvm (node version manager)
+if [ -x ~/.nvm/nvm.sh ]; then
+    source ~/.nvm/nvm.sh
+fi
+
+# alias perso
+alias l='ls -Al'
+
+export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWSTASHSTATE=1 GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM=verbose GIT_PS1_DESCRIBE_STYLE=branch
+export GIT_PS1_SHOWCOLORHINTS=1
+export PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+

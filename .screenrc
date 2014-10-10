@@ -1,0 +1,6 @@
+termcapinfo xterm ti@:te@
+ 
+#enable Shift PgUp/PgDown
+bindkey "^[[5;2~" eval "copy" "stuff ^b"
+bindkey -m "^[[5;2~" stuff ^b
+bindkey -m "^[[6;2~" stuff ^f
