@@ -1,0 +1,18 @@
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	sl = log --graph --pretty=oneline --abbrev-commit --decorate
+	up = pull --rebase
+	wdiff = diff --color-words
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[core]
+	editor = /usr/bin/vim
+[user]
+	name = Patrick Paysant
+	email = ppaysant@linagora.com
