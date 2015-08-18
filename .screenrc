@@ -1,4 +1,4 @@
-termcapinfo xterm ti@:te@
+termcapinfo xterm*|xs|rxvt|terminal ti@:te@
  
 #enable Shift PgUp/PgDown
 bindkey "^[[5;2~" eval "copy" "stuff ^b"
