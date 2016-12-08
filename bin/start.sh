@@ -64,6 +64,7 @@ sleep 1
 term2wid=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal" | grep -v $WINDOWID | grep -v ${term1wid})
 
 xdotool windowactivate ${term2wid} key Alt_L+F10
+xdotool key alt+t Right Down Down KP_Enter
 
 # ===== "Icedove"
 xdotool set_desktop 0
