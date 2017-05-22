@@ -8,6 +8,7 @@ fi
 # alias perso
 alias l='ls -Al'
 
+# cf https://github.com/git/git/tree/master/contrib/completion if not present on system
 export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWSTASHSTATE=1 GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=verbose GIT_PS1_DESCRIBE_STYLE=branch
 export GIT_PS1_SHOWCOLORHINTS=1
