@@ -19,7 +19,7 @@ list=$(sudo ${VIRSH_BIN} list --name)
 # get list of running docker containers
 docker_list=$(docker ps --format "docker:{{.Names}}")
 
-list=( ${list[@]} ${docker_list[@]} )
+list="${list} ${docker_list}"
 
 # ask the vm you want to connect
 vm_name=$(${ZENITY_BIN} --list --title="Running VMs" --column="Choose one to connect" ${list} 2>/dev/null)
