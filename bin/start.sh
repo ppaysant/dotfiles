@@ -12,10 +12,13 @@ SUBLIMETEXT="/home/patrick/bin/sublimetext/sublime_text"
 ICEDOVE="/usr/bin/icedove"
 NAUTILUS="/usr/bin/nautilus"
 
+## First xterm
+startTermWinId=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal")
+
 response=$(zenity --height=400 --list --separator=':' --checklist --title='Selection' --column="-" --column="Soft" \
 FALSE "MATTERMOST" \
-TRUE "FRANZ" \
-FALSE "PIDGIN" \
+FALSE "FRANZ" \
+TRUE "PIDGIN" \
 FALSE "HEXCHAT" \
 TRUE "TERM" \
 TRUE "CHROMIUM" \
@@ -67,7 +70,7 @@ fi
 if test "${response#*"TERM"}" != "$response"; then
 	${TERM} &
 	sleep 1
-	term1wid=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal" | grep -v $WINDOWID)
+	term1wid=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal" | grep -v $startTermWinId)
 
 	xdotool windowmove ${term1wid} 100 175
 	xdotool windowactivate ${term1wid} key ctrl+shift+t
@@ -97,7 +100,7 @@ if test "${response#*"TERM"}" != "$response"; then
 	xdotool set_desktop 1
 	${TERM} &
 	sleep 1
-	term2wid=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal" | grep -v $WINDOWID | grep -v ${term1wid})
+	term2wid=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal" | grep -v $startTermWinId | grep -v ${term1wid})
 
 	xdotool windowactivate ${term2wid} key Alt_L+F10
 	xdotool key alt+t Right Down Down KP_Enter
