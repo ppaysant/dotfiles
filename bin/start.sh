@@ -9,7 +9,7 @@ HEXCHAT="/usr/bin/hexchat"
 TERM="gnome-terminal --geometry 164x39"
 CHROMIUM="chromium"
 SUBLIMETEXT="/home/patrick/bin/sublimetext/sublime_text"
-ICEDOVE="/usr/bin/icedove"
+THUNDERBIRD="/usr/bin/thunderbird"
 NAUTILUS="/usr/bin/nautilus"
 
 ## First xterm
@@ -23,7 +23,7 @@ FALSE "HEXCHAT" \
 TRUE "TERM" \
 TRUE "CHROMIUM" \
 TRUE "SUBLIMETEXT" \
-TRUE "ICEDOVE" \
+TRUE "THUNDERBIRD" \
 TRUE "NAUTILUS" \
 )
 
@@ -114,8 +114,8 @@ if test "${response#*"NAUTILUS"}" != "$response"; then
 fi
 
 # ===== "Icedove"
-if test "${response#*"ICEDOVE"}" != "$response"; then
+if test "${response#*"THUNDERBIRD"}" != "$response"; then
 	xdotool set_desktop 0
-	${NOHUP} ${ICEDOVE} &
+	${NOHUP} ${THUNDERBIRD} &
 	sleep 1
 fi
