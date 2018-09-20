@@ -18,7 +18,7 @@ startTermWinId=$(xdotool search --sync --all --onlyvisible --class "gnome-termin
 response=$(zenity --height=400 --list --separator=':' --checklist --title='Selection' --column="-" --column="Soft" \
 FALSE "MATTERMOST" \
 FALSE "FRANZ" \
-TRUE "PIDGIN" \
+FALSE "PIDGIN" \
 FALSE "HEXCHAT" \
 TRUE "TERM" \
 TRUE "CHROMIUM" \
