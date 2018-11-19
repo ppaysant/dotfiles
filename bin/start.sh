@@ -1,6 +1,7 @@
 #!/bin/bash
 
 NOHUP="/usr/bin/nohup"
+echo "beginning"
 
 MATTERMOST_CLIENT="/home/patrick/bin/mattermost-desktop/mattermost-desktop"
 FRANZ_CLIENT="/home/patrick/download/internet/install/franz4.0.4/Franz"
@@ -13,8 +14,10 @@ THUNDERBIRD="/usr/bin/thunderbird"
 NAUTILUS="/usr/bin/nautilus"
 
 ## First xterm
+echo "first term"
 startTermWinId=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal")
 
+echo "zenity asking"
 response=$(zenity --height=400 --list --separator=':' --checklist --title='Selection' --column="-" --column="Soft" \
 FALSE "MATTERMOST" \
 FALSE "FRANZ" \
