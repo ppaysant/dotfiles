@@ -13,6 +13,8 @@
 	status = auto
 [core]
 	editor = /usr/bin/vim
+[status]
+	showUntrackedFiles = all
 [user]
 	name = Patrick Paysant
 	email = ppaysant@linagora.com
