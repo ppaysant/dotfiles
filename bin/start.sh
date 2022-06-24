@@ -10,6 +10,7 @@ HEXCHAT="/usr/bin/hexchat"
 TERM="gnome-terminal --geometry 164x39"
 CHROMIUM="chromium"
 SUBLIMETEXT="/home/patrick/bin/sublimetext/sublime_text"
+VSCODE="/usr/bin/code"
 THUNDERBIRD="/usr/bin/thunderbird"
 NAUTILUS="/usr/bin/nautilus"
 
@@ -25,7 +26,8 @@ FALSE "PIDGIN" \
 FALSE "HEXCHAT" \
 TRUE "TERM" \
 TRUE "CHROMIUM" \
-TRUE "SUBLIMETEXT" \
+FALSE "SUBLIMETEXT" \
+TRUE "VSCODE" \
 TRUE "THUNDERBIRD" \
 TRUE "NAUTILUS" \
 )
@@ -79,6 +81,7 @@ if test "${response#*"TERM"}" != "$response"; then
 	xdotool windowactivate ${term1wid} key ctrl+shift+t
 	xdotool key alt+t Right Down KP_Enter
 	xdotool windowsize ${term1wid} 1450 730
+	xdotool key ctrl+shift+m
 fi
 
 # ===== "Chromium"
@@ -98,6 +101,13 @@ if test "${response#*"SUBLIMETEXT"}" != "$response"; then
 	sleep 1
 fi
 
+# ===== "VSCODE"
+if test "${response#*"VSCODE"}" != "$response"; then
+	xdotool set_desktop 1
+	${VSCODE} &
+	sleep 1
+fi
+
 # ===== "Terminal 2"
 if test "${response#*"TERM"}" != "$response"; then
 	xdotool set_desktop 1
@@ -106,6 +116,7 @@ if test "${response#*"TERM"}" != "$response"; then
 	term2wid=$(xdotool search --sync --all --onlyvisible --class "gnome-terminal" | grep -v $startTermWinId | grep -v ${term1wid})
 
 	xdotool windowactivate ${term2wid} key Alt_L+F10
+	xdotool key ctrl+shift+m
 	xdotool key alt+t Right Down Down KP_Enter
 fi
 
@@ -116,9 +127,10 @@ if test "${response#*"NAUTILUS"}" != "$response"; then
 	sleep 1
 fi
 
-# ===== "Icedove"
+xdotool set_desktop 0
+
+# ===== "Thunderbird"
 if test "${response#*"THUNDERBIRD"}" != "$response"; then
-	xdotool set_desktop 0
 	${NOHUP} ${THUNDERBIRD} &
 	sleep 1
 fi
