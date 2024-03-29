@@ -4,9 +4,15 @@
 if [ -x ~/.nvm/nvm.sh ]; then
     source ~/.nvm/nvm.sh
 fi
+# bash completion for nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 # alias perso
 alias l='ls -Al'
+alias kal='gitk --all'
+alias gal='gitg --all'
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 # cf https://github.com/git/git/tree/master/contrib/completion if not present on system
 export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWSTASHSTATE=1 GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -14,3 +20,14 @@ export GIT_PS1_SHOWUPSTREAM=verbose GIT_PS1_DESCRIBE_STYLE=branch
 export GIT_PS1_SHOWCOLORHINTS=1
 export PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
+# changer le titre du gnome-term courant
+termtitle ()
+{
+	if [ $# -eq 0 ]
+	then
+		echo -e "usage: termtitle <title>"
+	else
+		echo "Changing term title with $1" \
+		&& echo -ne "\033]0;${1}\007"
+	fi
+}
